@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>panel展开</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel active"
+      style="background-image: url('https://wallpaperm.cmcm.com/0882b8cd611a2f366446cea430aa13a8.jpg');">
+      <h3>Spring</h3>
+    </div>
+    <div class="panel"
+      style="background-image: url('https://pic2.zhimg.com/v2-eacf187063e5592b7177b14043b6a6d0_r.jpg?source=172ae18b');">
+      <h3>Summer</h3>
+    </div>
+    <div class="panel"
+      style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.3b8077a25b496423e030eba669512b18?rik=PwyBaQCxuYccZQ&riu=http%3a%2f%2fpic.bizhi360.com%2fbbpic%2f41%2f241.jpg&ehk=5n36XNitxd5WdWc9e1AMXbgXVlRQ2KrJko%2fXcytkzxw%3d&risl=&pid=ImgRaw&r=0');">
+      <h3>Autumn</h3>
+    </div>
+    <div class="panel"
+      style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.6fb48d0a9d1348cc875a3b41a6e8cc9e?rik=YfuEhmia88lGQQ&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2016%2f1102%2feb7b22767029bdc7442162e75969a0cd.jpg&ehk=SOvClNsHC4DYzmWfkkW6vE6fODSlidi3KzjzCKo3MMQ%3d&risl=&pid=ImgRaw&r=0');">
+      <h3>Winter</h3>
+    </div>
+  </div>
+</body>
+<script>
+  var panels = document.querySelectorAll('.panel');
+  panels.forEach(item => {
+    item.addEventListener('click', () => {
+      removeActiveClasses();
+      item.classList.add('active');
+    })
+  })
+  function removeActiveClasses() {
+    panels.forEach(item => {
+      item.classList.remove('active')
+    })
+  }
+</script>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+  }
+
+  .container {
+    display: flex;
+    width: 90vw;
+  }
+
+  .panel {
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    border-radius: 50px;
+    margin: 10px;
+    flex: 0.5;
+    cursor: pointer;
+    color: blueviolet;
+    position: relative;
+    transition: all 700ms ease-in;
+  }
+
+  .panel h3 {
+    font-size: 26px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    opacity: 0;
+  }
+
+  .panel.active {
+    flex: 4;
+    opacity: 0.8;
+  }
+</style>
+
+</html>
